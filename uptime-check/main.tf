@@ -43,7 +43,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
       }
     }
   }
-  severity = "ERROR"
+  severity              = "ERROR"
   notification_channels = [google_monitoring_notification_channel.email.id]
 }
 
