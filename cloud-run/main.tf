@@ -7,6 +7,7 @@ resource "google_cloud_run_v2_service" "default" {
   name     = "cloudrun-service"
   project  = var.project
   location = var.location
+  ingress = "INGRESS_TRAFFIC_INTERNAL_ONLY"
 
   template {
     containers {
