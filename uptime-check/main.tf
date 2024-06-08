@@ -18,7 +18,7 @@ resource "google_monitoring_uptime_check_config" "cloud_run" {
     type = "uptime_url"
     labels = {
       project_id = var.project
-      host       = trim(var.cloud_run_url, "https://")
+      host       = trimprefix(var.cloud_run_url, "https://")
     }
   }
 
