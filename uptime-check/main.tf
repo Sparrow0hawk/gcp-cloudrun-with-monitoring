@@ -43,8 +43,20 @@ resource "google_monitoring_alert_policy" "alert_policy" {
       }
     }
   }
+
   severity              = "ERROR"
   notification_channels = [google_monitoring_notification_channel.email.id]
+
+  alert_strategy {
+    notification_channel_strategy {
+      // must be 30m
+      renotify_interval = "1800s"
+    }
+  }
+
+  documentation {
+    subject   = "Cloud Run is down."
+  }
 }
 
 resource "google_monitoring_notification_channel" "email" {
