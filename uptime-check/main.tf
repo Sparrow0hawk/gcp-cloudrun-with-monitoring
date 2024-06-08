@@ -36,7 +36,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
     condition_threshold {
       filter   = format("metric.type=\"monitoring.googleapis.com/uptime_check/check_passed\" AND metric.label.check_id=\"%s\" AND resource.type=\"uptime_url\"", google_monitoring_uptime_check_config.cloud_run.uptime_check_id)
       duration = "120s"
-      comparison = "COMPARISON_GT"
+      comparison = "COMPARISON_LT"
       threshold_value = "1"
       trigger {
         count = 1
