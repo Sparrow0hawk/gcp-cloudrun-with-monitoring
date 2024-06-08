@@ -49,6 +49,7 @@ resource "google_monitoring_alert_policy" "alert_policy" {
 
   alert_strategy {
     notification_channel_strategy {
+      notification_channel_names = [google_monitoring_notification_channel.email.id]
       // must be 30m
       renotify_interval = "1800s"
     }
