@@ -7,6 +7,7 @@ resource "google_monitoring_uptime_check_config" "cloud_run" {
   display_name = "cloud run uptime check"
   project      = var.project
   timeout      = "60s"
+  period       = "60s"
 
   http_check {
     port           = "80"
